@@ -40,7 +40,7 @@ The repository is primarily written in **C** and is suitable as an academic Data
 ## Project Structure
 
 ```text
-data-structures-algorithms-lab-portfolio/
+data-structures-algorithms-lab/
 ├── README.md
 ├── Lab 1/
 │   ├── README.md
@@ -56,23 +56,23 @@ data-structures-algorithms-lab-portfolio/
 │   └── Q1.png ... Q4.png
 ├── Lab 5/
 │   ├── README.md
-│   └── Q1.odt
-├── Lab 6/
-│   ├── README.md
 │   ├── Q1.c ... Q10.c
 │   └── rdm.h
-├── Lab 7/
+├── Lab 6/
 │   ├── README.md
 │   └── Q1.c ... Q6.c
-├── Lab 8/
+├── Lab 7/
 │   ├── README.md
 │   └── Q9.c ... Q12.c
-├── Lab 9/
+├── Lab 8/
 │   ├── README.md
 │   └── Q1.c ... Q7.c
-├── Lab 10/
+├── Lab 9/
 │   ├── README.md
 │   └── Q1.c ... Q4.c
+├── Lab 10/
+│   ├── README.md
+│   └── Q1.c ... Q6.c
 ├── Lab 11/
 │   ├── README.md
 │   └── Q1.c ... Q6.c
