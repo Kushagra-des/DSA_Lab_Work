@@ -1,0 +1,106 @@
+Q1. SinglyLinkedListNode* insertNodeAtTail(SinglyLinkedListNode* head, int data) {
+    SinglyLinkedListNode* newNode = (SinglyLinkedListNode*)malloc(sizeof(SinglyLinkedListNode));
+    newNode->data = data;
+    newNode->next = NULL;
+    if (head == NULL)
+        return newNode;
+    SinglyLinkedListNode* temp = head;
+    while (temp->next != NULL)
+        temp = temp->next;
+    temp->next = newNode;
+    return head;
+}
+
+Q2. void printLinkedList(SinglyLinkedListNode* head) {
+    SinglyLinkedListNode* temp = head;
+    while (temp != NULL) {
+        cout << temp->data << endl;
+        temp = temp->next;
+    }
+}
+
+Q3. SinglyLinkedListNode* insertNodeAtHead(SinglyLinkedListNode* head, int data) {
+    SinglyLinkedListNode* newNode = (SinglyLinkedListNode*)malloc(sizeof(SinglyLinkedListNode));
+    newNode->data = data;
+    newNode->next = head;
+    return newNode;
+}
+
+Q4. SinglyLinkedListNode* insertNodeAtPosition(SinglyLinkedListNode* head, int data, int position) {
+    SinglyLinkedListNode* newNode = (SinglyLinkedListNode*)malloc(sizeof(SinglyLinkedListNode));
+    newNode->data = data;
+    if (position == 0) {
+        newNode->next = head;
+        return newNode;
+    }
+    SinglyLinkedListNode* temp = head;
+    for (int i = 0; i < position - 1; i++) {
+        temp = temp->next;
+    }
+    newNode->next = temp->next;
+    temp->next = newNode;
+    return head;
+}
+
+Q5. SinglyLinkedListNode* deleteNode(SinglyLinkedListNode* head, int position) {
+    if (position == 0) {
+        SinglyLinkedListNode* temp = head->next;
+        free(head);
+        return temp;
+    }
+    SinglyLinkedListNode* temp = head;
+    for (int i = 0; i < position - 1; i++) {
+        temp = temp->next;
+    }
+    SinglyLinkedListNode* toDelete = temp->next;
+    temp->next = toDelete->next;
+    free(toDelete);
+    return head;
+}
+
+Q6. void reversePrint(SinglyLinkedListNode* head) {
+    if (head == NULL)
+        return;
+    reversePrint(head->next);
+    cout << head->data << endl;
+}
+
+Q7. DoublyLinkedListNode* sortedInsert(DoublyLinkedListNode* head, int data) {
+    DoublyLinkedListNode* newNode = (DoublyLinkedListNode*)malloc(sizeof(DoublyLinkedListNode));
+    newNode->data = data;
+    newNode->next = NULL;
+    newNode->prev = NULL;
+
+    if (head == NULL)
+        return newNode;
+    if (data < head->data) {
+        newNode->next = head;
+        head->prev = newNode;
+        return newNode;
+    }
+
+    DoublyLinkedListNode* temp = head;
+    while (temp->next != NULL && temp->next->data < data)
+        temp = temp->next;
+
+    newNode->next = temp->next;
+    if (temp->next != NULL)
+        temp->next->prev = newNode;
+    temp->next = newNode;
+    newNode->prev = temp;
+    return head;
+}
+
+Q8. bool has_cycle(SinglyLinkedListNode* head) {
+    if (head == NULL)
+        return false;
+    SinglyLinkedListNode* slow = head;
+    SinglyLinkedListNode* fast = head;
+    while (fast != NULL && fast->next != NULL) {
+        slow = slow->next;
+        fast = fast->next->next;
+        if (slow == fast)
+            return true;
+    }
+    return false;
+}
